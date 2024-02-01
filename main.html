@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GOOD HEALTH AND WELLBEING</title>
+  <!-- Add Font Awesome CSS (make sure to include the link to Font Awesome CSS) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+  <style>
+    header {
+      background-color: blue;
+      color: antiquewhite;
+      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: background-color 0.5s, color 0.5s;
+      font-weight: bolder;
+    }
+
+    #toggle-icon-section {
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: antiquewhite;
+      font-size: 1.5rem;
+      display: flex;
+      align-items: center;
+    }
+
+    #icon-section {
+      display: none;
+      justify-content: center;
+      margin: 20px 0;
+    }
+
+    #icon-section i {
+      font-size: 2rem;
+      margin: 0 10px;
+      color: blue;
+      cursor: pointer;
+    }
+    
+    #icon-section p {
+      color: blue;
+      margin: 0 10px;
+    }
+
+    #carousel {
+      width: 70%;
+      margin: 20px auto;
+      overflow: hidden;
+    }
+
+    #carousel img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+  </style>
+  <!-- Add Bootstrap CSS (make sure to include the link to Bootstrap CSS) -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+  <header>
+    
+    <center>Let food be the medicine and medicine be the food</center>
+  </header>
+
+  <!-- Icon Section -->
+  <div id="icon-section" class="d-flex">
+    <a href="fooddiet.html"><i class="fas fa-utensils"></i><p>Food Diet</p></a>
+    <a href="meditationtips.html"><i class="fas fa-brain"></i><p>Mental Guidance</p></a>
+    <a href="physical.html"><i class="fas fa-dumbbell"></i><p>Physical Fitness</p></a>
+  </div>
+
+  <!-- Carousel Section -->
+  <div id="carousel" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active" data-bs-interval="200">
+        <img src="food1.jpg" alt="Image 1">
+      </div>
+      <div class="carousel-item">
+        <img src="meditation.jpeg" alt="Image 2">
+      </div>
+      <div class="carousel-item">
+        <img src="physicalhealth.png" alt="Image 3">
+      </div>
+      <div class="carousel-item">
+        <img src="food11.avif" alt="Image 4">
+      </div>
+    </div>
+    <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carousel" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+
+  <!-- Add Bootstrap JS (make sure to include the link to Bootstrap JS) -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.min.js"></script>
+
+  <!-- Add Font Awesome JS (make sure to include the link to Font Awesome JS) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js"></script>
+
+  <script>
+    var iconSection = document.getElementById('icon-section');
+    var toggleButton = document.getElementById('toggle-icon-section');
+    
+    toggleButton.addEventListener('click', function() {
+      if (iconSection.style.display === 'flex') {
+        iconSection.style.display = 'none';
+      } else {
+        iconSection.style.display = 'flex';
+      }
+    });
+  <script>
+  function toggleIconSection() {
+    var iconSection = document.getElementById('icon-section');
+    if (iconSection.style.display === 'flex') {
+      iconSection.style.display = 'none';
+    } else {
+      iconSection.style.display = 'flex';
+    }
+  }
+</script>
+  </script>
+</body>
+</html>

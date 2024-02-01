@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Your Diet</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-image: url("https://e0.pxfuel.com/wallpapers/52/830/desktop-wallpaper-food-background-food-food-recipes-food-menu-greek-food.jpg");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            transition: background-color 0.5s;
+        }
+
+        h1 {
+            color: #3498db;
+        }
+
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            margin-top: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+        }
+
+        #result, #diet-chart {
+            margin-top: 20px;
+            text-align: center;
+            color: #ffffff; /* Set text color to white */
+        }
+    </style>
+</head>
+<body>
+    <h1>Get Your Diet</h1>
+    <form id="bmiForm">
+        <label for="height">Height (in centimeters):</label>
+        <input type="number" id="height" step="1" required>
+
+        <label for="weight">Weight (in kilograms):</label>
+        <input type="number" id="weight" step="0.1" required>
+
+        <label for="age">Age:</label>
+        <input type="number" id="age" required>
+
+        <button type="button" onclick="calculateBMI()">Calculate BMI</button>
+    </form>
+
+    <div id="result"></div>
+
+    <div id="diet-chart"></div>
+
+    <script>
+        function calculateBMI() {
+            var heightCms = parseFloat(document.getElementById('height').value);
+            var weight = parseFloat(document.getElementById('weight').value);
+            var age = parseInt(document.getElementById('age').value);
+
+            if (isNaN(heightCms) || isNaN(weight) || isNaN(age) || heightCms <= 0 || weight <= 0 || age <= 0) {
+                alert('Please enter valid values for height, weight, and age.');
+                return;
+            }
+
+            // Convert height from centimeters to meters
+            var heightMeters = heightCms / 100;
+
+            var bmi = weight / (heightMeters * heightMeters);
+            var category = getBMICategory(bmi);
+
+            var resultText = 'Your BMI is: ' + bmi.toFixed(2) + '<br>Category: ' + category;
+
+            document.getElementById('result').innerHTML = resultText;
+
+            // Display diet chart
+            displayDietChart(category);
+        }
+
+        function getBMICategory(bmi) {
+            if (bmi < 18.5) {
+                return 'Underweight';
+            } else if (bmi >= 18.5 && bmi < 24.9) {
+                return 'Normal Weight';
+            } else if (bmi >= 25 && bmi < 29.9) {
+                return 'Overweight';
+            } else {
+                return 'Obese';
+            }
+        }
+
+        function displayDietChart(category) {
+            var dietChart = '';
+
+            switch (category) {
+                case 'Underweight':
+                    dietChart = 'Prescribed Diet: High-protein diet, healthy fats, and increased calorie intake.';
+                    break;
+                case 'Normal Weight':
+                    dietChart = 'Prescribed Diet: Balanced diet with a mix of carbohydrates, proteins, and fats.';
+                    break;
+                case 'Overweight':
+                    dietChart = 'Prescribed Diet: Reduced calorie intake, increased fruits and vegetables, and regular exercise.';
+                    break;
+                case 'Obese':
+                    dietChart = 'Prescribed Diet: Low-calorie, high-fiber diet, regular exercise, and medical supervision.';
+                    break;
+                default:
+                    dietChart = 'Prescribed Diet: Consult with a healthcare professional for personalized advice.';
+                    break;
+            }
+
+            document.getElementById('diet-chart').innerHTML = '<h2>Diet Chart</h2>' + dietChart;
+        }
+    </script>
+</body>
+</html>
